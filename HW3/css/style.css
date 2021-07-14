@@ -1,0 +1,59 @@
+* {
+    font-family: 'Indie Flower', cursive;
+}
+.content, .text {
+    height: 176px;
+    width: 573px;
+    border-color: blue;
+    border-width: 5px;
+    border: 5px;
+    padding: 47px;
+    margin: 34px;
+}
+ .content {
+    border-style: dotted;
+    box-sizing: border-box;
+}
+.text {
+    border-style: solid;
+    box-sizing: content-box;
+}
+.element {
+    display: block;
+    width: 350px;
+    height: 220px;
+    padding: 15px 10px 20px 10px ;
+    margin-bottom: 30px;
+    border: 2px;
+    border-color: rgb(226, 26, 12);
+    border-style: dashed;
+    background-color: rgb(3, 196, 3);
+    box-sizing: content-box;
+}
+h3 {
+    margin: 3px 0px 3px 0px;
+}
+.container {
+    text-align: justify;
+    width: 615px;
+    height: 393px;
+    margin-left: 15px;
+    box-sizing: content-box
+}
+.icon {
+    float: left;
+    margin: 1px 15px 3px 0px;
+    width: 166px;
+    height: 88px;
+}
+
+.leyba {
+    float: right;
+    height: 59px;
+    width: 106px;
+    margin: 12px 0px 13px 16px;
+}
+div.container>p {
+    font-family: sans-serif;
+    font-size: 14px;
+}
