@@ -37,34 +37,19 @@ createInput(number);
 
 let h2 = document.createElement('h2');
 button.after(h2);
-let hour = 0;
-let minutes = 0;
-let seconds = 0;
-function startTime() {
-	let time = new Date();
-	hour = time.getHours();
-	minutes = time.getMinutes();
-	seconds = time.getSeconds();
-	minutes = checkTime(minutes);
-	seconds = checkTime(seconds);
-	h2.innerHTML = hour + ":" + minutes + ":" + seconds;
-
-	setTimeout('startTime()', 1000);
-
+function clock() {
+	let intervalId = null;
+	let date = new Date(),
+		hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours(),
+		minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes(),
+		seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
+	h2.innerHTML = hours + ':' + minutes + ':' + seconds;
 }
-
-timer = setInterval((hour, minutes, seconds) => {
-	this.hour = hour++;
-	this.minutes = minutes++;
-	this.seconds = seconds++
-
-}, 5000);
-console.log(hour);
-function checkTime(i) {
-	if (i < 10) {
-		i = "0" + i;
-	}
-	return i;
+function go() {
+	intervalId = setInterval(clock, 1000);
+}
+function stop() {
+	clearInterval(intervalId)
 }
 
 let buttonStart = document.createElement('button');
@@ -72,9 +57,9 @@ buttonStart.classList.add('start');
 let buttonStop = document.createElement('button');
 buttonStop.classList.add('stop');
 buttonStart.innerHTML = 'Start';
-buttonStart.addEventListener('click', function () { startTime() });
+buttonStart.addEventListener('click', go);
 buttonStop.innerHTML = 'Stop';
-buttonStop.addEventListener('click', function () { clearInterval(timer) })
+buttonStop.addEventListener('click', stop)
 //вобщем я не понимаю как это написать отмены интервала
 
 
