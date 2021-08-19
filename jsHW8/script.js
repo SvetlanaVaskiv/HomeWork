@@ -5,7 +5,7 @@ let button = document.querySelector('div');
 
 
 
-let number = +prompt('Enter your number');
+/*let number = +prompt('Enter your number');
 function createInput() {
 	let array = [];
 	for (let i = 1; i <= number; i++) {
@@ -32,36 +32,51 @@ function createInput() {
 
 }
 createInput(number);
+*/
+
+
 let h2 = document.createElement('h2');
 button.after(h2);
-
+let hour = 0;
+let minutes = 0;
+let seconds = 0;
 function startTime() {
-	let tm = new Date();
-	let h = tm.getHours();
-	let m = tm.getMinutes();
-	let s = tm.getSeconds();
-	m = checkTime(m);
-	s = checkTime(s);
-	h2.innerHTML = h + ":" + m + ":" + s;
-	t = setInterval('startTime()', 1000);
+	let time = new Date();
+	hour = time.getHours();
+	minutes = time.getMinutes();
+	seconds = time.getSeconds();
+	minutes = checkTime(minutes);
+	seconds = checkTime(seconds);
+	h2.innerHTML = hour + ":" + minutes + ":" + seconds;
+
+	setTimeout('startTime()', 1000);
+
 }
+
+timer = setInterval((hour, minutes, seconds) => {
+	this.hour = hour++;
+	this.minutes = minutes++;
+	this.seconds = seconds++
+
+}, 5000);
+console.log(hour);
 function checkTime(i) {
 	if (i < 10) {
 		i = "0" + i;
 	}
 	return i;
 }
-let timer = startTime;
+
 let buttonStart = document.createElement('button');
 buttonStart.classList.add('start');
-
 let buttonStop = document.createElement('button');
 buttonStop.classList.add('stop');
 buttonStart.innerHTML = 'Start';
-
 buttonStart.addEventListener('click', function () { startTime() });
 buttonStop.innerHTML = 'Stop';
 buttonStop.addEventListener('click', function () { clearInterval(timer) })
+//вобщем я не понимаю как это написать отмены интервала
+
 
 h2.before(buttonStart);
 h2.before(buttonStop);
