@@ -5,9 +5,9 @@ let button = document.querySelector('div');
 
 
 
-/*let number = +prompt('Enter your number');
+let number = +prompt('Enter your number');
 function createInput() {
-	let array = [];
+	//let array = [];
 	for (let i = 1; i <= number; i++) {
 
 		let input = document.createElement('input')
@@ -25,26 +25,28 @@ function createInput() {
 			input.value = "строка"
 		}
 		button.before(input);
-		array.push(input)
+		//	array.push(input)
 	}
 
 
 
 }
 createInput(number);
-*/
+
 
 
 let h2 = document.createElement('h2');
 button.after(h2);
 function clock() {
-	let intervalId = null;
 	let date = new Date(),
 		hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours(),
 		minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes(),
 		seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds();
 	h2.innerHTML = hours + ':' + minutes + ':' + seconds;
 }
+let intervalId = null;
+
+console.log(intervalId)
 function go() {
 	intervalId = setInterval(clock, 1000);
 }
