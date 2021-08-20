@@ -1,13 +1,13 @@
+'use strict'
 
-
-let button = document.querySelector('div');
+/*let button = document.querySelector('div');
 
 
 
 
 let number = +prompt('Enter your number');
 function createInput() {
-	//let array = [];
+
 	for (let i = 1; i <= number; i++) {
 
 		let input = document.createElement('input')
@@ -25,7 +25,7 @@ function createInput() {
 			input.value = "строка"
 		}
 		button.before(input);
-		//	array.push(input)
+
 	}
 
 
@@ -38,6 +38,7 @@ createInput(number);
 let h2 = document.createElement('h2');
 button.after(h2);
 function clock() {
+
 	let date = new Date(),
 		hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours(),
 		minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes(),
@@ -50,10 +51,11 @@ console.log(intervalId)
 function go() {
 	intervalId = setInterval(clock, 1000);
 }
+console.log(intervalId)
 function stop() {
 	clearInterval(intervalId)
 }
-
+console.log(intervalId)
 let buttonStart = document.createElement('button');
 buttonStart.classList.add('start');
 let buttonStop = document.createElement('button');
@@ -62,11 +64,10 @@ buttonStart.innerHTML = 'Start';
 buttonStart.addEventListener('click', go);
 buttonStop.innerHTML = 'Stop';
 buttonStop.addEventListener('click', stop)
-//вобщем я не понимаю как это написать отмены интервала
 
 
 h2.before(buttonStart);
-h2.before(buttonStop);
+h2.before(buttonStop);*/
 
 let coffeeMachine = {
 	message: 'Your coffee is ready!',
@@ -84,17 +85,6 @@ coffeeMachine.start()
 
 let teaPlease = {
 	message: 'Wanna some tea instead of coffee?',
-	start: function () {
-		setTimeout(
-			() => {
-				console.log(this.message);
-			}, 3000
-		);
-
-	},
-
-
-};
-//teaPlease = coffeeMachine.start.bind(teaPlease);
-coffeeMachine.start = teaPlease.start.bind(teaPlease)
-coffeeMachine.start()
+}
+teaPlease = coffeeMachine.start.bind(teaPlease);
+teaPlease()
