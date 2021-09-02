@@ -60,3 +60,10 @@ console.log(account.getHistory())
 account.unfreeze()
 console.log(account.getBalance())
 console.log(account.getHistory())
+try {
+	account.withdraw(100)
+	console.log(account.getBalance())
+}
+catch (er) {
+	console.log(er.message)
+}
