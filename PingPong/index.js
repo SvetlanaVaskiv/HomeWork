@@ -148,11 +148,13 @@ class Field {
 	constructor(
 		width = 1000,
 		height = 800,
-
+		score = 0,
 
 	) {
 		this._width = width;
 		this._height = height;
+		this._score = score;
+
 
 	}
 	get width() {
@@ -171,11 +173,20 @@ class Field {
 	set height(value) {
 		this._height = value;
 	}
+	get score() {
+		return this._score
+	}
+	set score(value) {
+		this._score = value;
+	}
 	render() {
 		ctx.clearRect(0, 0, 1000, 800)
 		ctx.rect(0, 0, this.width, this.height);
-
+		ctx.fillStyle = "#FCC";
+		ctx.font = " 300px Arial";
+		ctx.fillText(this.score, 500, 400);
 		ctx.stroke();
+
 	}
 }
 class Ball {
@@ -237,22 +248,22 @@ class Ball {
 
 
 }
-const ball = new Ball(ctx, 30, 250, 35, 2, 'red');
-let platform = new Platform(ctx, 600, 760, 70, 35, 'black');
+const ball = new Ball(ctx, 30, 250, 40, 2, 'red');
+let platform = new Platform(ctx, 600, 760, 120, 35, '#336');
 const field = new Field;
 let moveDown = true;
 let moveRight = true;
-let score = 0;
 let newPosX;
 document.addEventListener('keydown', function (event) {
 	if (event.code == "ArrowRight" && platform.positionX + platform.width !== 1000) {
-		newPosX = platform.positionX += 5;
-
+		newPosX = platform.positionX += 10;
 	} else if (event.code == "ArrowLeft" && platform.positionX != 0) {
-		newPosX = platform.positionX -= 5;
-
+		newPosX = platform.positionX -= 10;
 	}
 });
+
+
+
 let pointx = [];
 for (let i = 0; i < 15; i++) {
 	let j = Math.floor(Math.random() * 1000);
@@ -267,54 +278,122 @@ for (let i = 0; i < 15; i++) {
 
 
 
+let platforms = new Platform(ctx, pointx[0], pointy[0], WIDTH, 35, '#CCC');
+let platforms1 = new Platform(ctx, pointx[1], pointy[1], WIDTH, 35, '#CCC');
+let platforms2 = new Platform(ctx, pointx[2], pointy[2], WIDTH, 35, '#CCC');
+let platforms3 = new Platform(ctx, pointx[3], pointy[3], WIDTH, 35, '#CCC');
+let platforms4 = new Platform(ctx, pointx[4], pointy[4], WIDTH, 35, '#CCC');
+let platforms5 = new Platform(ctx, pointx[5], pointy[5], WIDTH, 35, '#CCC');
+let platforms6 = new Platform(ctx, pointx[6], pointy[6], WIDTH, 35, '#CCC');
+let platforms7 = new Platform(ctx, pointx[7], pointy[7], WIDTH, 35, '#CCC');
+let platforms8 = new Platform(ctx, pointx[8], pointy[8], WIDTH, 35, '#CCC');
+let platforms9 = new Platform(ctx, pointx[9], pointy[9], WIDTH, 35, '#CCC');
 
-let platforms = new Platform(ctx, pointx[0], pointy[0], WIDTH, 35, 'blue');
-let platforms1 = new Platform(ctx, pointx[1], pointy[1], WIDTH, 35, 'blue');
-let platforms2 = new Platform(ctx, pointx[2], pointy[2], WIDTH, 35, 'blue');
-let platforms3 = new Platform(ctx, pointx[3], pointy[3], WIDTH, 35, 'blue');
-let platforms4 = new Platform(ctx, pointx[4], pointy[4], WIDTH, 35, 'blue');
-let platforms5 = new Platform(ctx, pointx[5], pointy[5], WIDTH, 35, 'blue');
-let platforms6 = new Platform(ctx, pointx[6], pointy[6], WIDTH, 35, 'blue');
-let platforms7 = new Platform(ctx, pointx[7], pointy[7], WIDTH, 35, 'blue');
-let platforms8 = new Platform(ctx, pointx[8], pointy[8], WIDTH, 35, 'blue');
-let platforms9 = new Platform(ctx, pointx[9], pointy[9], WIDTH, 35, 'blue');
-
-console.log(platforms)
-console.log(platforms1)
 let playGame = setInterval(function () {
-	if (ball.positionX >= newPosX && ball.positionX <= newPosX
-		//	&& ball.positionY == platform.positionY
+
+	if (ball.positionX >= newPosX
+		&& ball.positionX <= newPosX + 120
+		&& ball.positionY + 16 === platform.positionY
 	) {
 
 		moveDown = true;
-		score++;
+		field.score++;
 	}
-	if (ball.positionY - 100 == 0) {
-		moveDown = false;
+	//	switch (ball.positionY) {
+	//	case pointy[0]: case pointy[1]: case pointy[2]: case pointy[3]:
+	//case pointy[4]: case pointy[5]: case pointy[6]: case pointy[7]:
+	//	case pointy[8]: case pointy[9]:
+	//	moveDown = false;
+	//  }
 
+	if (ball.positionX >= platforms.positionX
+		&& ball.positionX <= platforms.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms.positionY + platforms.height
+	) {
+
+		moveDown = false;
 	}
-	if (ball.positionX == 985) {
+
+
+	if (ball.positionX >= platforms1.positionX
+		&& ball.positionX <= platforms1.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms1.positionY + platforms1.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms2.positionX
+		&& ball.positionX <= platforms2.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms2.positionY + platforms2.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms3.positionX
+		&& ball.positionX <= platforms3.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms3.positionY + platforms3.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms4.positionX
+		&& ball.positionX <= platforms4.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms4.positionY + platforms4.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms5.positionX
+		&& ball.positionX <= platforms5.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms5.positionY + platforms5.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms6.positionX
+		&& ball.positionX <= platforms6.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms6.positionY + platforms6.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms7.positionX
+		&& ball.positionX <= platforms7.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms7.positionY + platforms7.height
+	) {
+
+		moveDown = false;
+	}
+
+	if (ball.positionX >= platforms8.positionX
+		&& ball.positionX <= platforms8.positionX + WIDTH
+		&& ball.positionY - ball.radius == platforms8.positionY + platforms8.height) {
+
+		moveDown = false;
+	} if (ball.positionX >= platforms9.positionX
+		&& ball.positionX <= platforms9.positionX + WIDTH
+		&& ball.positionY - ball.radius === platforms9.positionY + platforms9.height
+		&& ball.positionY + ball.radius === 0
+	) {
+
+		moveDown = false;
+	}
+	if (ball.positionY === ball.radius) {
+		moveDown = false;
+	}
+	if (ball.positionX === 985) {
 		moveRight = false;
 
 	}
-	if (ball.positionX === 15) {
+	if (ball.positionX === ball.radius) {
 		moveRight = true;
 
 	}
-	if (moveRight == true) {
+	if (moveRight === true) {
 		ball.positionX++;
 
 	} else {
 		ball.positionX--;
 
 	}
-	if (moveDown == true) {
+	if (moveDown === true) {
 		ball.positionY--;
 
 	} else {
 		ball.positionY++;
 
 	}
+
+
+
 	field.render();
 	ball.render();
 	platform.render();
@@ -328,7 +407,10 @@ let playGame = setInterval(function () {
 	platforms7.render()
 	platforms8.render()
 	platforms9.render()
-}, 10)
+	if (ball.positionY > platform.positionY) {
+		clearInterval(playGame);
+	}
+}, 5)
 
 
 
