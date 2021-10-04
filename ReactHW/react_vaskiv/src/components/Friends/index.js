@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Span } from "../Span";
 
 const FriendItem = ({ avatar, name, isOnline }) => {
 	return (<>
 
 		<li>
-			<span className="span" style={{ background: "red" }}>{isOnline}</span>
+			<Span></Span>
 
 			<img src={avatar} alt={name} width="200" />
 			<h1>{name}</h1>
