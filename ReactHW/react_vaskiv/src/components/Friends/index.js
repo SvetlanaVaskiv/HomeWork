@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Span } from "../Span";
 
 const FriendItem = ({ avatar, name, isOnline }) => {
+	const online = { color: 'red' };
+	const offline = { color: "green" }
 	return (<>
 
 		<li>
-			<Span></Span>
-
+			<span style={isOnline ? online : offline}> </span>
 			<img src={avatar} alt={name} width="200" />
 			<h1>{name}</h1>
 
@@ -16,23 +16,15 @@ const FriendItem = ({ avatar, name, isOnline }) => {
 
 }
 
-export const FriendList = ({ friend, isOnline }) => {
+export const FriendList = ({ friend }) => {
 
 
-	const [online, setOnline] = useState(friend)
-	const available = (offline) => {
-
-		const newList = online.filter(item => item.isOnline ? isOnline : offline)
-		setOnline(newList)
-		console.log(newList)
-	}
 
 	const FriendsJsX = friend.map(({ name, id, isOnline, avatar }) => <FriendItem
 		key={id}
 		name={name}
 		isOnline={isOnline}
 		avatar={avatar}
-		available={available}
 	/>)
 	return <ul>{FriendsJsX}</ul>
 }

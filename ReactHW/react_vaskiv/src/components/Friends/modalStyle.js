@@ -5,6 +5,7 @@ export const Status = styled.span`
 	height: 50px;
 	margin: 0 15px;
   border-radius: 50%;
-	background-color: #FF0000;
+	background-color: ${(props) =>
+		props === "isOnline" ? "FF0000" : " cbcbcb"};
 
 `;
