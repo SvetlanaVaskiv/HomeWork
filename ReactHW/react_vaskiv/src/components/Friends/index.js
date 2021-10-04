@@ -1,21 +1,21 @@
 import React, { useState } from "react";
+import { Status } from "./modalStyle";
 
 const FriendItem = ({ avatar, name, isOnline }) => {
-	const online = { color: 'red' };
-	const offline = { color: "green" }
-	return (<>
+	const checkingTheStatus = isOnline ? Status.color === '#C33' : '#363';
 
+	return (<>
 		<li>
-			<span style={isOnline ? online : offline}> </span>
+			<Status className={checkingTheStatus} />
 			<img src={avatar} alt={name} width="200" />
 			<h1>{name}</h1>
 
 		</li>
 	</>
+
 	)
-
 }
-
+console.log(Status)
 export const FriendList = ({ friend }) => {
 
 
@@ -25,6 +25,8 @@ export const FriendList = ({ friend }) => {
 		name={name}
 		isOnline={isOnline}
 		avatar={avatar}
+
 	/>)
 	return <ul>{FriendsJsX}</ul>
+
 }
