@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 
 const FriendItem = ({ avatar, name, isOnline }) => {
-	const Span1 = styled.span`
+	const Span = styled.span`
 	width: 50px; 
 	height: 50px;
 	margin: 0 15px;
@@ -12,14 +12,9 @@ const FriendItem = ({ avatar, name, isOnline }) => {
 	background-color:  ${props => props.theme.main};
 
 `;
-	const Span2 = styled.span`
-	width: 50px; 
-	height: 50px;
-	margin: 0 15px;
-  border-radius: 50%;
-	background-color:  #363;
 
-`;
+
+
 	const theme = {
 		main: "green"
 	}
@@ -30,7 +25,7 @@ const FriendItem = ({ avatar, name, isOnline }) => {
 
 	return (<>
 		<li>
-			<Span1 theme={checkingTheStatus} />
+			<Span theme={checkingTheStatus} />
 
 			<img src={avatar} alt={name} width="200" />
 			<h1>{name}</h1>
