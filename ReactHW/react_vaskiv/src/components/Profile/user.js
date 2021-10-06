@@ -1,5 +1,6 @@
 import React from "react"
 import { Description, WrapperCard, Quantity, StatsList } from "./styleProfile"
+import PropTypes from 'prop-types';
 
 export const Profiles = ({ name, tag, location, avatar, statsFollowers, statsLikes, statsViews }) => {
 
@@ -26,7 +27,7 @@ export const Profiles = ({ name, tag, location, avatar, statsFollowers, statsLik
 					<Quantity>{statsViews}</Quantity>
 				</li>
 				<li>
-					<span class="label"> Likes </span>
+					<span className="label"> Likes </span>
 					<Quantity>{statsLikes}</Quantity>
 				</li>
 			</StatsList>
@@ -35,5 +36,17 @@ export const Profiles = ({ name, tag, location, avatar, statsFollowers, statsLik
 	)
 
 }
-
+Profiles.defaultProps = {
+	name: 'Name',
+	avatar: './Friends/image/somethingWentWrong.jpg'
+}
+Profiles.propTypes = {
+	name: PropTypes.string.isRequired,
+	tag: PropTypes.string.isRequired,
+	location: PropTypes.string.isRequired,
+	avatar: PropTypes.string.isRequired,
+	followers: PropTypes.number,
+	views: PropTypes.number,
+	likes: PropTypes.number
+}
 

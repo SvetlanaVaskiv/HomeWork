@@ -1,13 +1,13 @@
 import React from "react";
-import { ListItem, Span } from "./styleFriendList";
+import { ListItem, StatusStyle } from "./styleFriendList";
 import PropTypes from 'prop-types';
 const FriendItem = ({ avatar, name, isOnline }) => {
-	const theme = { main: "green" }
-	const theme1 = { main: "red" }
-	const checkingTheStatus = isOnline ? theme : theme1;
+	const statusStyleOnline = { main: "green" }
+	const statusStyleOffline = { main: "red" }
+	const checkingTheStatus = isOnline ? statusStyleOnline : statusStyleOffline;
 	return (<>
 		<ListItem>
-			<Span theme={checkingTheStatus} />
+			<StatusStyle statusStyleOnline={checkingTheStatus} />
 			<img src={avatar} alt={name} width="200" />
 			<h1>{name}</h1>
 
@@ -26,13 +26,24 @@ export const FriendList = ({ friend }) => {
 }
 
 FriendItem.defaultProps = {
-	name: 'Name',
-	avatar: '/Friends/image/slowInternet.png'
+	friend: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: 'Name',
+			avatar: './image/slowInternet.png',
+			id: 'number'
+		})
+
+	)
+
 };
-console.log(FriendItem.defaultProps)
-FriendItem.propTypes = {
-	name: PropTypes.string.isRequired,
-	isOnline: PropTypes.bool.isRequired,
-	avatar: PropTypes.string.isRequired,
-	id: PropTypes.number.isRequired
+FriendList.propTypes = {
+	friend: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			isOnline: PropTypes.bool.isRequired,
+			avatar: PropTypes.string.isRequired,
+			id: PropTypes.number.isRequired
+		})
+	)
+
 }
