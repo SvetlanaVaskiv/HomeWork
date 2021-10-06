@@ -1,5 +1,6 @@
 import React from "react";
 import { ListItem, Span } from "./styleFriendList";
+import PropTypes from 'prop-types';
 const FriendItem = ({ avatar, name, isOnline }) => {
 	const theme = { main: "green" }
 	const theme1 = { main: "red" }
@@ -22,4 +23,16 @@ export const FriendList = ({ friend }) => {
 		avatar={avatar}
 	/>)
 	return <ul>{FriendsJsX}</ul>
+}
+
+FriendItem.defaultProps = {
+	name: 'Name',
+	avatar: '/Friends/image/slowInternet.png'
+};
+console.log(FriendItem.defaultProps)
+FriendItem.propTypes = {
+	name: PropTypes.string.isRequired,
+	isOnline: PropTypes.bool.isRequired,
+	avatar: PropTypes.string.isRequired,
+	id: PropTypes.number.isRequired
 }
