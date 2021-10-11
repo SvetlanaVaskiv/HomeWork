@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { TextStyle, FormStyle } from '../Formik/logInStyle.js';
+import { TextStyle, FormStyle } from '../Login/LogInStyle.js';
 
 const validationSchema = yup.object({
 	email: yup
@@ -29,9 +29,8 @@ export const SignUp = () => {
 		},
 
 		validationSchema: validationSchema,
-		onSubmit: (values) => {
-
-			console.log('values', values)
+		onSubmit: (onSubmit) => {
+			alert(`Thank you for sign  up. Please,check your email ${onSubmit.email}`);
 		},
 	});
 

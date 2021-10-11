@@ -1,9 +1,9 @@
 import * as React from 'react';
-import ColorTabs from './component/Tabs/tabs';
+import FormLoginAndSignUp from './component/Tabs/Tabs';
 
 function App() {
 	return (<>
-		<ColorTabs />
+		<FormLoginAndSignUp />
 	</>
 	)
 

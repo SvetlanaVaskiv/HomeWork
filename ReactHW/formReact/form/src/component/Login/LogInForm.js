@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { TextStyle, FormStyle } from './logInStyle';
+import { TextStyle, FormStyle } from './LogInStyle';
 
 const validationSchema = yup.object({
 	email: yup
@@ -21,16 +21,12 @@ export const Form = () => {
 		initialValues: {
 			email: 'foobar@example.com',
 			password: 'foobar',
-
 		},
-
 		validationSchema: validationSchema,
-		onSubmit: (values) => {
-
-			console.log('values', values)
+		onSubmit: () => {
+			alert("In progress");
 		},
 	});
-
 	return (
 		<div>
 			<TextStyle> Log In</TextStyle>
@@ -57,7 +53,6 @@ export const Form = () => {
 						error={formik.touched.password && Boolean(formik.errors.password)}
 						helperText={formik.touched.password && formik.errors.password}
 					/>
-
 					<Button color="success" variant="contained" fullWidth type="submit">
 						Submit
 					</Button>
