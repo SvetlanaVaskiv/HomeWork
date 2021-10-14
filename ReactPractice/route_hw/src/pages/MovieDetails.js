@@ -1,4 +1,6 @@
 
-export const MovieDetails = () => {
-	return <h1>good</h1>
+import { MovieDetailsContainer } from "../component/MovieDetails";
+
+export const MovieDetails = ({ match, history }) => {
+	return <MovieDetailsContainer history={history} match={match} />
 }
