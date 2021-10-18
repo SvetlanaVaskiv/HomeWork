@@ -1,6 +1,8 @@
 import React from "react";
 import { ListItem, StatusStyle } from "./styleFriendList";
 import PropTypes from 'prop-types';
+
+
 const FriendItem = ({ avatar, name, isOnline }) => {
 	const statusStyleOnline = { main: "green" }
 	const statusStyleOffline = { main: "red" }
