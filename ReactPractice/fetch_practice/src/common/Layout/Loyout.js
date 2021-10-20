@@ -1,6 +1,4 @@
-// Core
 import React, { useContext } from "react";
-// Instruments
 import { LayoutWrapper } from "./LayoutStyles";
 import { ThemeContext } from "../../context/theme.js";
 

@@ -16,17 +16,11 @@ export const NoteList = () => {
 			date: new Date().toLocaleString(),
 		}
 		setList((prevState) => [...prevState, data])
-		/*	если prevState падает тогда пишем так с проверкой 
-			setList((prevState) =>{
-				const prev = prevState ? prevState: {}
-				return [...prev, data]
-			} */
-		//REset for our input
+
 		setValue('')
 	}
 	const onDelete = (id) => {
 		const newList = list.filter(item => item.id !== id)
-		//new Array without selected id
 		setList(newList);
 	}
 	const onUpdate = (id, text) => {

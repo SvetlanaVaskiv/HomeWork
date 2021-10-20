@@ -1,0 +1,4 @@
+[remote "origin"]
+  url = git@gitlab.a-level.com.ua:Svetlana/HomeWork.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+
