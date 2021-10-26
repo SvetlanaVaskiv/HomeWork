@@ -8,7 +8,6 @@ const options = [
 	{ value: 'us', label: "US" },
 	{ value: 'france', label: "FRANCE" }
 ]
-
 export const SelectLocation = () => {
 	const dispatch = useDispatch()
 	return (
