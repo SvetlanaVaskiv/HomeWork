@@ -18,21 +18,11 @@
       "lacation": "Australia",
       "id": "a947b174-93d4-4971-9587-50de50efb09a"
     },
-    [
-      {
-        "name": "лооит",
-        "id": "7d3b4c61-e3cf-4fc1-bc70-115212f06559",
-        "number": "д55556455",
-        "location": "ukraine"
-      }
-    ],
-    [
-      {
-        "name": "лооит",
-        "id": "59412ac1-1d5d-40a6-b3b4-09e03da0e959",
-        "number": "д55556455",
-        "location": "ukraine"
-      }
-    ]
+    {
+      "name": "лооит",
+      "id": "e28525bb-b695-4b76-9406-a87f2d417371",
+      "number": "235656",
+      "location": "france"
+    }
   ]
 }

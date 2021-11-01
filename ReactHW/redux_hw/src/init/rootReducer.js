@@ -15,5 +15,5 @@ const contactListReducer = combineReducers({
 // Reducers
 export const rootReducer = combineReducers({
 	contactsList: contactListReducer,
-	dataForm: dataUserRootReducer
+	contact: dataUserRootReducer
 });

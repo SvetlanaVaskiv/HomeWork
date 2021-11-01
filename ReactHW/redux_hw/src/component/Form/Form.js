@@ -16,21 +16,20 @@ export const Form = () => {
 	const [valueNumber, setValueNumber] = useState('');
 	const handleChangeName = (e) => setValueName(e.target.value);
 	const handleChangeNumber = (e) => setValueNumber(e.target.value);
-	const changeLocation = useSelector(state => state.dataForm.location)
-	const dataList = useSelector(state => state.dataForm)
+	const changeLocation = useSelector(state => state.contact.location)
+	const contact = useSelector(state => state.contact.dataUser)
 	const dispatch = useDispatch()
-
 	const onSave = () => {
-		const data = [{
+		const data = {
 			name: valueName,
 			id: uuidv4(),
 			number: valueNumber,
 			location: changeLocation,
-		}]
+		}
 		dispatch(setDataForm(data))
 		setValueName('')
 		setValueNumber('')
-		if (data.find(item => item.number === valueNumber)) {
+		if (contact.find(item => item.number === valueNumber)) {
 			toast.info(`${valueNumber} is already exist !`)
 		} else {
 			dispatch(addContacts(data))
