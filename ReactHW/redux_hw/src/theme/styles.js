@@ -5,6 +5,6 @@ export const containerStyle = {
 	alignItems: 'center',
 	minHeight: '100vh',
 	fontSize: 26,
-	color: 'red'
+	color: 'blue'
 };
 
